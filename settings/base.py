@@ -86,6 +86,9 @@ def JINJA_CONFIG():
 # and js files that can be bundled together by the minify app.
 MINIFY_BUNDLES = {
     'css': {
+        'csrf-failure': (
+            'css/csrf-failure.less',
+        ),
         'about': (
             'css/about.less',
         ),
@@ -683,3 +686,5 @@ def facebook_tab_url_lazy():
     from django.conf import settings
     return '//www.facebook.com/{page}/app_{id}'.format(page=settings.FACEBOOK_PAGE_NAMESPACE, id=settings.FACEBOOK_APP_ID)
 FACEBOOK_TAB_URL = lazy(facebook_tab_url_lazy, str)()
+
+CSRF_FAILURE_VIEW = 'mozorg.views.csrf_failure'
