@@ -38,7 +38,7 @@ def submit_form(request, form):
             headers = {'Reply-To': sender}
 
             email = EmailMessage(subject, msg, sender, to, headers=headers)
-            #email.send()
+            email.send()
 
     return {'form_submitted': form_submitted, 'form_error': form_error}
 
